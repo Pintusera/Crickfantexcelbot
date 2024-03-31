@@ -237,7 +237,7 @@ def write_my(m_id):
 	print(n)
 	return 
 	
-def ground_link(today):
+#def ground_link(today):
 	url=today+'/live-cricket-score'
 	#print(url)
 	response=requests.get(url,header)
