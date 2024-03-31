@@ -2,8 +2,11 @@
 
 import telebot
 import telegramcrickexcel
-import suprocces
-BOT_TOKEN = token
+from alive import alive
+
+alive()
+
+BOT_TOKEN =os.environ.get('token')
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
