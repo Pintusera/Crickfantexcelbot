@@ -237,7 +237,7 @@ def write_my(m_id):
 	print(n)
 	return 
 	
-#def ground_link(today):
+def ground_link(today):
 	url=today+'/live-cricket-score'
 	#print(url)
 	response=requests.get(url,header)
@@ -340,7 +340,7 @@ def extract_data(dict):
 			print('done')
 		return 
 		
-g_url=ground_link(today_url)
+#g_url=ground_link(today_url)
 '''count=0
 for x in get_groundwise_all_suffix(g_url):
 	if count==0:
