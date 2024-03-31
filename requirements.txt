@@ -1,1 +1,6 @@
-
+telebot
+flask
+beautifulsoup4
+bs4
+openpyxl
+requests
