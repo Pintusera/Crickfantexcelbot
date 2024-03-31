@@ -4,14 +4,6 @@ import openpyxl
 from openpyxl.styles import Alignment,fonts,NamedStyle
 
 
-if "match-previe"  in today_url:
-	today_url=today_url.replace("/match-preview","")
-elif "live-cricket-score"  in today_url:
-	today_url=today_url.replace("/live-cricket-score","")
-
-else:
-	pass
-print(today_url)
 main_url="https://www.espncricinfo.com"
 #test_id='/player/shadab-khan-922943'
 header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
