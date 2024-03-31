@@ -8,6 +8,9 @@ today_url=input()
 
 if "match-previe"  in today_url:
 	today_url=today_url.replace("/match-preview","")
+elif "live-cricket-score"  in today_url:
+	today_url=today_url.replace("/live-cricket-score","")
+
 else:
 	pass
 print(today_url)
@@ -359,14 +362,17 @@ for x in get_groundwise_all_suffix(g_url):
 		w+=1
 	statistics_table_maker(x)
 	count+=1	'''
-						
-for a in get_player(today_url):
-	extract_data(a)
+
+
+def final(url):
+	today_url=url
+	if "match-previe"  in today_url:
+		today_url=today_url.replace("/match-preview","")
+	elif "live-cricket-score"  in today_url:
+		today_url=today_url.replace("/live-cricket-score","")
+	else:
+		pass
+	for a in get_player(today_url):
+			extract_data(a)
 	
-
-
-print("\n"*4)
-print('All Done...check Data')
-print("\n"*3, "Let's see you soon ")
-
-print("\n","Have a nice day, Best of luck","\n"*2)
+	return 
