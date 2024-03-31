@@ -4,8 +4,6 @@ import openpyxl
 from openpyxl.styles import Alignment,fonts,NamedStyle
 
 
-today_url=input()
-
 if "match-previe"  in today_url:
 	today_url=today_url.replace("/match-preview","")
 elif "live-cricket-score"  in today_url:
