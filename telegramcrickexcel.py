@@ -362,7 +362,7 @@ def final(url):
 
 	for a in get_player(today_url):
 		extract_data(a)
-	return 
+	return wb , name
 	
 
 
