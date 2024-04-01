@@ -367,10 +367,3 @@ def final(url):
 
 
 
-print("\n"*4)
-print('All Done...check Data')
-print("\n"*3, "Let's see you soon ")
-
-print("\n","Have a nice day, Best of luck","\n"*2)
-
-
