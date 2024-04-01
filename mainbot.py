@@ -4,7 +4,7 @@ import telebot
 import telegramcrickexcel
 from Alive import alive
 
-Alive.alive()
+alive()
 
 BOT_TOKEN =os.environ.get('token')
 
