@@ -2,7 +2,7 @@
 
 import telebot
 import telegramcrickexcel
-import alive
+from Alive import alive
 
 alive()
 
