@@ -18,7 +18,9 @@ def start(message):
 def handle_link(message):
     link = message.text
     doc=telegramcrickexcel.final(link)
+    bot.send_message(message.chat.id, "wait we are preparing Excel file")
     bot.send_document(message.chat.id, document=wb)
+    bot.send_message(message.chat.id, "done")
     
 def handle_excel_request(message):
   user_data = message.text.strip() 
