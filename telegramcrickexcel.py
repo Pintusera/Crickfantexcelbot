@@ -4,10 +4,6 @@ import openpyxl
 from openpyxl.styles import Alignment,fonts,NamedStyle
 
 
-main_url="https://www.espncricinfo.com"
-#test_id='/player/shadab-khan-922943'
-header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
-
 centered_style = NamedStyle(name="centered_style", alignment=Alignment(horizontal='center', vertical='center'))
 start_style = NamedStyle(name="centered_style", alignment=Alignment(horizontal='right', vertical='center'))
   
@@ -25,23 +21,10 @@ recent.freeze_panes='B1'
 stats.freeze_panes='C1'
 
 
-def excel_name(url):
-	link=url+"/live-cricket-score"
-	response=requests.get(link, header)
-	if response.status_code==200:
-		soup=bs(response.content,"html.parser")
-		data_text=soup.find('h1').text
-		data_text_list=data_text.split(",")
-		match_date=data_text_list[-1].split('-')[0]
-		name=f'{data_text_list[0]}({match_date}).xlsx'
-		#print(name)
-		return name
-
-
-
-
+main_url="https://www.espncricinfo.com"
+#test_id='/player/shadab-khan-922943'
+header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
 	
-
 
 def number(d):
 	try:
@@ -51,7 +34,19 @@ def number(d):
 	#print (type(d))
 	return wc
 
-
+def excel_name(url):
+	global name
+	link=url+"/live-cricket-score"
+	response=requests.get(link )
+	if response.status_code==200:
+		soup=bs(response.content,"html.parser")
+		data_text=soup.find('h1').text
+		data_text_list=data_text.split(",")
+		match_date=data_text_list[-1].split('-')[0]
+		match_date=match_date[1:-6]
+		name=f'{data_text_list[0]} ({match_date}).xlsx'
+		
+		return name
 			
 def player_details(p_id):
 	link2=main_url+p_id
@@ -233,7 +228,7 @@ def write_my(m_id):
 
     
     
-	wb.save(excel_name(today_url))
+	wb.save(name)
 	print(n)
 	return 
 	
@@ -247,7 +242,7 @@ def ground_link(today):
 		ground_link_soup=ground_soup.find("a")
 		ground_name=ground_soup.text
 		link=ground_link_soup.get("href")
-		print (link)
+		#print (link)
 		return link
 
 
@@ -328,7 +323,7 @@ def statistics_table_maker(suffix):
 				#print(table_data)
 	w+=2
 	ws.title="Ground"
-	wb.save("p.xlsx")
+	wb.save(name)
 	return
 	
 
@@ -352,8 +347,9 @@ for x in get_groundwise_all_suffix(g_url):
 		w+=1
 	statistics_table_maker(x)
 	count+=1	'''
-
-
+	
+	
+	
 def final(url):
 	today_url=url
 	if "match-previe"  in today_url:
@@ -362,7 +358,21 @@ def final(url):
 		today_url=today_url.replace("/live-cricket-score","")
 	else:
 		pass
+	excel_name(today_url)
+
 	for a in get_player(today_url):
-			extract_data(a)
-	
+		extract_data(a)
 	return 
+	
+match_link=input()
+
+final(match_link)
+
+
+print("\n"*4)
+print('All Done...check Data')
+print("\n"*3, "Let's see you soon ")
+
+print("\n","Have a nice day, Best of luck","\n"*2)
+
+
