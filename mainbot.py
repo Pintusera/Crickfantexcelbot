@@ -10,7 +10,7 @@ BOT_TOKEN =os.environ.get('token')
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start' , 'Start'])
 def start(message):
     bot.reply_to(message, "Hi! I can provide Excel files of any Criket match from ESPNcricinfo website\n"
                           "Enter the corresponding match link.")
