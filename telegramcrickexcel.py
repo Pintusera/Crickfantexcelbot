@@ -2,8 +2,19 @@ import requests
 from bs4 import BeautifulSoup as bs
 import openpyxl
 from openpyxl.styles import Alignment,fonts,NamedStyle
+import os
+import telebot
+from telegramcrickexcel import final 
+from Alive import alive
+#########
+alive()
+
+BOT_TOKEN =os.environ.get('token')
+
+bot = telebot.TeleBot(BOT_TOKEN)
 
 
+#############
 centered_style = NamedStyle(name="centered_style", alignment=Alignment(horizontal='center', vertical='center'))
 start_style = NamedStyle(name="centered_style", alignment=Alignment(horizontal='right', vertical='center'))
   
