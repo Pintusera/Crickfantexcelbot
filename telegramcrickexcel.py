@@ -388,8 +388,7 @@ def handle_link(message):
     provide_link = message.text
     bot.send_message(message.chat.id, "wait we are preparing Excel file")
     name=final(provide_link)
-    with open(name, 'rb') as file:
-        bot.send_document(message.chat.id, file, caption='Here is your Excel file!')
+    bot.send_document(message.chat.id, name, caption='Here is your Excel file!')
     bot.send_message(message.chat.id, "done")
     
 def handle_excel_request(message):
