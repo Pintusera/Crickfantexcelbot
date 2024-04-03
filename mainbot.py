@@ -268,7 +268,7 @@ def get_groundwise_all_suffix(u):
 			main_box=soup.find('div', id='recs')
 			data_title=main_box.find('h2'). string 
 
-			#print(data_title)
+			print(data_title)
 			p=w-1
 			ws.cell(row=p,column=3).value=data_title
 			w+=1
