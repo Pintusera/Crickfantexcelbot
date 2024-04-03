@@ -3,8 +3,7 @@ from bs4 import BeautifulSoup as bs
 import openpyxl
 from openpyxl.styles import Alignment,fonts,NamedStyle
 import os
-import telebot
-from telegramcrickexcel import final 
+import telebot 
 from Alive import alive
 #########
 alive()
