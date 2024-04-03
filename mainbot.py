@@ -385,6 +385,7 @@ def start(message):
 @bot.message_handler(func=lambda message: True)
 def handle_link(message):
     provide_link = message.text
+    print(provide_link)
     bot.send_message(message.chat.id, "wait we are preparing Excel file")
     final(provide_link)
     bot.send_document(message.chat.id, name, caption='Here is your Excel file!')
