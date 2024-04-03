@@ -5,7 +5,8 @@ from openpyxl.styles import Alignment,fonts,NamedStyle
 import os
 import telebot 
 from Alive import alive
-#########
+
+
 alive()
 
 BOT_TOKEN =os.environ.get('token')
@@ -13,7 +14,7 @@ BOT_TOKEN =os.environ.get('token')
 bot = telebot.TeleBot(BOT_TOKEN)
 
 
-#############
+
 centered_style = NamedStyle(name="centered_style", alignment=Alignment(horizontal='center', vertical='center'))
 start_style = NamedStyle(name="centered_style", alignment=Alignment(horizontal='right', vertical='center'))
   
@@ -377,7 +378,6 @@ def final(url):
 
 
 
-############ Bot section #########
 @bot.message_handler(commands=['start' , 'Start'])
 def start(message):
     bot.reply_to(message, "Hi! I can provide Excel files of any Criket match from ESPNcricinfo website\n"
@@ -386,7 +386,7 @@ def start(message):
 def handle_link(message):
     provide_link = message.text
     bot.send_message(message.chat.id, "wait we are preparing Excel file")
-    name=final(provide_link)
+    final(provide_link)
     bot.send_document(message.chat.id, name, caption='Here is your Excel file!')
     bot.send_message(message.chat.id, "done")
     
