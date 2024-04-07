@@ -2,7 +2,7 @@ import os
 import telebot 
 from Alive import alive
 from datetime import datetime,timedelta
-
+from matchsectc import*
 
 alive()
 
@@ -24,6 +24,7 @@ def option_date():
 def start(message):
     bot.reply_to(message, "Hi! I can provide Excel files of any Criket match from ESPNcricinfo website\n"
                           "Enter the corresponding match link.")
+    
 
 @bot.message_handler(func=option_func)
 def options(message):
@@ -35,6 +36,11 @@ def options(message):
     dtbtn4 = types.KeyboardButton(dt_list[3])
     markup.add(dtbtnl, dtbtn2,dtbtn3,dtbtn4)
     bot.send_message(message.chat.id, "Choose an option:", reply_markup=markup)
+    df=matchselec.dataframe()
+    ds_match=df.match
+	ds_link=df.link
+	df=df[df.match==ds_match[1]]
+	suffix=df.iat[0,4]
 
 def handle_excel_request(message):
   user_data = message.text.strip() 
