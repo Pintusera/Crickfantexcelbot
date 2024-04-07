@@ -1,6 +1,7 @@
 import os
 import telebot 
 from Alive import alive
+from datetime import datetime,timedelta
 
 
 alive()
@@ -8,6 +9,15 @@ alive()
 BOT_TOKEN =os.environ.get('token')
 
 bot = telebot.TeleBot(BOT_TOKEN)
+
+def option_date():
+    date_list=[]
+    n=0
+    while (n==3):
+        date = datetime.now()+timedelta(days=n)
+        n+=1
+        date_list.append(date.strftime('%a, %d %B'))
+    return date_list
 
 
 @bot.message_handler(commands=['start' , 'Start'])
@@ -22,7 +32,8 @@ def handle_link(message):
     final(provide_link)
     bot.send_document(message.chat.id, name, caption='Here is your Excel file!')
     bot.send_message(message.chat.id, "done")
-    
+
+
 def handle_excel_request(message):
   user_data = message.text.strip() 
   
