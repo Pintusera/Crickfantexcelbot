@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 
 	
-def match_suffix():
+def match_suffix(d):
 	total_data=[]	
 	url="https://www.espncricinfo.com/live-cricket-match-schedule-fixtures"
 	
@@ -62,10 +62,8 @@ def match_suffix():
 	
 	df=pd.DataFrame(data=total_data , columns=['date','time', 'match', 'details', 'link'])
 	
-	df=df[df.date=='Sun,8 Apr']
-	ds_match=df.match
-	ds_link=df.link
-	df=df[df.match==ds_match[1]]
-	suffix=df.iat[0,4]
-	return suffix
+	df=df[df.date==d]
+	return df
+	
+	
 						
